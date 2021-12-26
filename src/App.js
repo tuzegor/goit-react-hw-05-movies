@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  fetchTrendingMovies,
+  fetchSearchMovies,
+  fetchSearchMoviesById,
+  fetchMovieActors,
+  fetchMovieReviews,
+} from './services/movies-api';
 
 function App() {
+  fetchTrendingMovies().then(r => console.log(r));
+  fetchSearchMovies('matrix').then(r => console.log(r));
+  fetchSearchMoviesById('634649').then(r => console.log(r));
+  fetchMovieActors('634649').then(r => console.log(r));
+  fetchMovieReviews('634649').then(r => console.log(r));
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="App-header"></header>
     </div>
   );
 }
