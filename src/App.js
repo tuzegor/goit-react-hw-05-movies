@@ -7,7 +7,7 @@ import { MoviesSearch } from './views/MoviesSearch';
 //----------------------------------------------
 import { Header } from './components/Header';
 
-function App() {
+export default function App() {
   // fetchTrendingMovies().then(r => console.log(r));
   // fetchSearchMovies('matrix').then(r => console.log(r));
   // fetchSearchMoviesById('634649').then(r => console.log(r));
@@ -25,5 +25,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
