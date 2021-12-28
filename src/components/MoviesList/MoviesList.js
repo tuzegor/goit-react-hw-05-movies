@@ -1,15 +1,8 @@
-import { useState, useEffect } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 
-export function MoviesList({ fetch }) {
-  const [films, setFilms] = useState(null);
-
-  useEffect(() => {
-    fetch().then(result => setFilms(result.results));
-  }, [fetch]);
-
+export function MoviesList({ films }) {
   const { url } = useRouteMatch();
-  console.log(url);
+
   return (
     <ul>
       {films &&

@@ -1,12 +1,19 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { MoviesList } from '../../components/MoviesList';
 import { fetchTrendingMovies } from '../../services/movies-api';
 
 export function Home() {
+  const [films, setFilms] = useState(null);
+
+  useEffect(() => {
+    console.log('Запрос');
+    fetchTrendingMovies().then(result => setFilms(result.results));
+  }, []);
+
   return (
     <>
       <h1>Trending today</h1>
-      <MoviesList fetch={fetchTrendingMovies}></MoviesList>
+      <MoviesList films={films}></MoviesList>
     </>
   );
 }
