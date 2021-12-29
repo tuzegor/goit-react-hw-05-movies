@@ -1,7 +1,6 @@
 import React from 'react';
 
 export function MovieDetails({ film }) {
-  console.log(film);
   return (
     <div>
       <img

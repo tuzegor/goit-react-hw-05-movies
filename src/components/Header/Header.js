@@ -1,15 +1,26 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import styles from './Header.module.css';
 
 export function Header() {
   return (
-    <>
-      <NavLink to="/" className="homeLink">
+    <section className={styles.header}>
+      <NavLink
+        to="/"
+        exact
+        className={styles.homeLink}
+        activeClassName={styles.activeLink}
+      >
         Home
       </NavLink>
-      <NavLink to="/movies" className="searchLink">
+      <NavLink
+        to="/movies"
+        exact
+        className={styles.searchLink}
+        activeClassName={styles.activeLink}
+      >
         Movies
       </NavLink>
-    </>
+    </section>
   );
 }
