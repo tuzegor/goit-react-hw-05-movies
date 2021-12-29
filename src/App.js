@@ -10,6 +10,12 @@ import { MoviePage } from './views/MoviePage';
 import { Header } from './components/Header';
 
 export default function App() {
+  // fetchTrendingMovies().then(r => console.log(r));
+  // fetchSearchMovies('matrix').then(r => console.log(r));
+  // fetchSearchMoviesById('634649').then(r => console.log(r));
+  // fetchMovieActors('634649').then(r => console.log(r));
+  // fetchMovieReviews('634649').then(r => console.log(r));
+
   return (
     <div className="App">
       <Header></Header>
