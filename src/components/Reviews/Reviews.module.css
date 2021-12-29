@@ -1,0 +1,4 @@
+.item:not(:last-child),
+.title {
+  margin-bottom: 10px;
+}

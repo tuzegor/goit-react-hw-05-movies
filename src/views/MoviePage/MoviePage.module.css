@@ -1,16 +1,29 @@
-.addInfo {
-  margin-bottom: 20px;
-}
 .Cast,
 .Reviews {
+  display: inline-block;
+  width: 100px;
   border: 2px solid #a47053;
   border-radius: 10px;
-  padding: 5px;
+  padding: 5px 0;
   margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
 }
 .Cast {
   margin-right: 10px;
 }
 .active {
+  color: #a47053;
+}
+.backBtn {
+  width: 100px;
+  height: 30px;
+  color: inherit;
+  background-color: initial;
+  border: 2px solid #a47053;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.backBtn:hover {
   color: #a47053;
 }

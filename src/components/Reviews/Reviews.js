@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from '../../services/movies-api';
+import styles from './Reviews.module.css';
 
 export function Reviews() {
   const { movieId } = useParams();
@@ -13,8 +14,8 @@ export function Reviews() {
       {reviews && (
         <ul>
           {reviews.map(review => (
-            <li key={review.id}>
-              <h3>Author: {review.author}</h3>
+            <li className={styles.item} key={review.id}>
+              <h3 className={styles.title}>Author: {review.author}</h3>
               <p>{review.content}</p>
             </li>
           ))}

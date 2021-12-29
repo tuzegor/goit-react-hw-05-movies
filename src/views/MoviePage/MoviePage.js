@@ -25,7 +25,9 @@ export function MoviePage() {
 
   return (
     <div className="container">
-      <button onClick={() => history.goBack()}>Back</button>
+      <button className={styles.backBtn} onClick={() => history.goBack()}>
+        Back
+      </button>
       {film && <MovieDetails film={film}></MovieDetails>}
       <div className={styles.addInfo}>
         <h3 className="title">Additional information</h3>
