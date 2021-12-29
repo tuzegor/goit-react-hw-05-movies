@@ -6,7 +6,6 @@ export function Home() {
   const [films, setFilms] = useState(null);
 
   useEffect(() => {
-    console.log('Запрос');
     fetchTrendingMovies().then(result => setFilms(result.results));
   }, []);
 
