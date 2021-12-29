@@ -24,7 +24,7 @@ export function MoviesSearch() {
           value={searchFilmName}
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos"
+          placeholder="Enter the movie"
           onChange={e => setSearchFilmName(e.target.value)}
         />
         <button type="submit">Search</button>
