@@ -4,9 +4,9 @@ import { fetchMovieActors } from '../../services/movies-api';
 
 export function Cast() {
   const { movieId } = useParams();
-  const [actors, setFilm] = useState(null);
+  const [actors, setActors] = useState(null);
   useEffect(() => {
-    fetchMovieActors(movieId).then(result => setFilm(result.cast));
+    fetchMovieActors(movieId).then(result => setActors(result.cast));
   }, [movieId]);
 
   return (
