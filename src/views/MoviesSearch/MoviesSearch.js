@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+import styles from './MoviesSearch.module.css';
 
 import { MoviesList } from '../../components/MoviesList';
 import { fetchSearchMovies } from '../../services/movies-api';
@@ -23,10 +24,11 @@ export function MoviesSearch() {
   };
 
   return (
-    <>
-      <h1>What are you looking for?</h1>
-      <form onSubmit={searchFilmBySubmit}>
+    <div className="container">
+      <h1 className="title">What are you looking for?</h1>
+      <form className={styles.searchForm} onSubmit={searchFilmBySubmit}>
         <input
+          className={styles.filmInput}
           type="text"
           value={searchFilmName}
           autoComplete="off"
@@ -34,9 +36,11 @@ export function MoviesSearch() {
           placeholder="Enter the movie"
           onChange={e => setSearchFilmName(e.target.value)}
         />
-        <button type="submit">Search</button>
+        <button className={styles.searchBtn} type="submit">
+          Search
+        </button>
       </form>
       {listState && <MoviesList films={films}></MoviesList>}
-    </>
+    </div>
   );
 }

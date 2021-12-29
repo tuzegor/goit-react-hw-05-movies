@@ -5,22 +5,24 @@ import styles from './Header.module.css';
 export function Header() {
   return (
     <section className={styles.header}>
-      <NavLink
-        to="/"
-        exact
-        className={styles.homeLink}
-        activeClassName={styles.activeLink}
-      >
-        Home
-      </NavLink>
-      <NavLink
-        to="/movies"
-        exact
-        className={styles.searchLink}
-        activeClassName={styles.activeLink}
-      >
-        Movies
-      </NavLink>
+      <div className="container">
+        <NavLink
+          to="/"
+          exact
+          className={styles.homeLink}
+          activeClassName={styles.activeLink}
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/movies"
+          exact
+          className={styles.searchLink}
+          activeClassName={styles.activeLink}
+        >
+          Movies
+        </NavLink>
+      </div>
     </section>
   );
 }

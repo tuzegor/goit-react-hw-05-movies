@@ -10,9 +10,9 @@ export function Home() {
   }, []);
 
   return (
-    <>
-      <h1>Trending today</h1>
+    <div className="container">
+      <h1 className="title">Trending today</h1>
       <MoviesList films={films}></MoviesList>
-    </>
+    </div>
   );
 }
