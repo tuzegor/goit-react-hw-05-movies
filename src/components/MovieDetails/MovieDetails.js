@@ -1,23 +1,27 @@
 import React from 'react';
-
+import styles from './MovieDetails.module.css';
 export function MovieDetails({ film }) {
   return (
-    <div>
+    <div className={styles.Card}>
       <img
+        className={styles.Poster}
         src={`https://www.themoviedb.org/t/p/w500${film.poster_path}`}
         alt={film.title}
-        width={200}
       />
-      <div>
-        <h2>{film.title ?? film.name}</h2>
+      <div className={styles.Description}>
+        <h2 className={styles.Title}>{film.title ?? film.name}</h2>
 
         <p>Vote: {film.vote_average}/10</p>
-        <h3>Overview</h3>
+        <h3 className={styles.Overview}>Overview</h3>
         <p>{film.overview}</p>
-        <ul>Genres</ul>
-        {film.genres.map(genre => (
-          <li key={genre.id}>{genre.name}</li>
-        ))}
+        <ul className={styles.Genres}>
+          Genres
+          {film.genres.map(genre => (
+            <li className={styles.item} key={genre.id}>
+              {genre.name}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

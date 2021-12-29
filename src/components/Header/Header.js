@@ -16,7 +16,6 @@ export function Header() {
         </NavLink>
         <NavLink
           to="/movies"
-          exact
           className={styles.searchLink}
           activeClassName={styles.activeLink}
         >

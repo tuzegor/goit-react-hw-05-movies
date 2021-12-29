@@ -1,0 +1,16 @@
+.addInfo {
+  margin-bottom: 20px;
+}
+.Cast,
+.Reviews {
+  border: 2px solid #a47053;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+.Cast {
+  margin-right: 10px;
+}
+.active {
+  color: #a47053;
+}

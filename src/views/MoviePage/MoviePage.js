@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import styles from './MoviePage.module.css';
 import {
   Route,
   NavLink,
@@ -23,16 +24,28 @@ export function MoviePage() {
   }, [movieId]);
 
   return (
-    <>
+    <div className="container">
       <button onClick={() => history.goBack()}>Back</button>
       {film && <MovieDetails film={film}></MovieDetails>}
-      <div>
-        <h3>Additional information</h3>
-        <NavLink to={`${url}/cast`}>Cast</NavLink>
-        <NavLink to={`${url}/reviews`}>Reviews</NavLink>
+      <div className={styles.addInfo}>
+        <h3 className="title">Additional information</h3>
+        <NavLink
+          activeClassName={styles.active}
+          className={styles.Cast}
+          to={`${url}/cast`}
+        >
+          Cast
+        </NavLink>
+        <NavLink
+          activeClassName={styles.active}
+          className={styles.Reviews}
+          to={`${url}/reviews`}
+        >
+          Reviews
+        </NavLink>
       </div>
       <Route path="/movies/:movieId/cast" component={Cast} />
       <Route path="/movies/:movieId/reviews" component={Reviews} />
-    </>
+    </div>
   );
 }
