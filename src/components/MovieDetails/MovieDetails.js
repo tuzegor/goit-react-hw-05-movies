@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './MovieDetails.module.css';
+import PropTypes from 'prop-types';
+
 export function MovieDetails({ film }) {
   return (
     <div className={styles.Card}>
@@ -26,3 +28,7 @@ export function MovieDetails({ film }) {
     </div>
   );
 }
+
+MovieDetails.propTypes = {
+  film: PropTypes.object,
+};

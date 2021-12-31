@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './MoviesList.module.css';
+import PropTypes from 'prop-types';
+
 export function MoviesList({ films }) {
   return (
     <ul className={styles.filmsList}>
@@ -12,3 +14,7 @@ export function MoviesList({ films }) {
     </ul>
   );
 }
+
+MoviesList.propTypes = {
+  films: PropTypes.array,
+};

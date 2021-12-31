@@ -4,6 +4,7 @@ import { fetchMovieReviews } from '../../services/movies-api';
 import styles from './Reviews.module.css';
 import { IDLE, PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
 import { Loader } from '../Loader';
+import PropTypes from 'prop-types';
 
 export function Reviews() {
   const { movieId } = useParams();
@@ -49,3 +50,6 @@ export function Reviews() {
     </>
   );
 }
+Reviews.propTypes = {
+  movieId: PropTypes.string,
+};

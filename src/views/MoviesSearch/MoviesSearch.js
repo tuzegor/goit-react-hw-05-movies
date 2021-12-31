@@ -4,18 +4,35 @@ import styles from './MoviesSearch.module.css';
 
 import { MoviesList } from '../../components/MoviesList';
 import { fetchSearchMovies } from '../../services/movies-api';
+import { IDLE, PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
+import { Loader } from '../../components/Loader';
 
 export function MoviesSearch() {
   const [searchFilmName, setSearchFilmName] = useState('');
-  const [listState, setListState] = useState(false);
   const [films, setFilms] = useState(null);
   const history = useHistory();
   const location = useLocation();
+  const [status, setStatus] = useState(IDLE);
+  const [error, setError] = useState(null);
 
   const searchFilmBySubmit = e => {
     e.preventDefault();
-    fetchSearchMovies(searchFilmName).then(result => setFilms(result.results));
-    setListState(true);
+    setStatus(PENDING);
+    fetchSearchMovies(searchFilmName)
+      .then(result => {
+        if (result) {
+          setFilms(result.results);
+          setStatus(RESOLVED);
+          return;
+        }
+        setError(Error('Something went wrong'));
+        setStatus(REJECTED);
+      })
+      .catch(error => {
+        setError(error);
+        setStatus(REJECTED);
+      });
+
     setSearchFilmName('');
     history.push({
       ...location,
@@ -40,7 +57,9 @@ export function MoviesSearch() {
           Search
         </button>
       </form>
-      {listState && <MoviesList films={films}></MoviesList>}
+      {status === RESOLVED && <MoviesList films={films}></MoviesList>}
+      {status === PENDING && <Loader />}
+      {status === REJECTED && <h1>{error.message}</h1>}
     </div>
   );
 }
