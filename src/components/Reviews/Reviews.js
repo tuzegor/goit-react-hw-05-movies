@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from '../../services/movies-api';
 import styles from './Reviews.module.css';
 import { IDLE, PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
+import { Loader } from '../Loader';
 
 export function Reviews() {
   const { movieId } = useParams();
@@ -43,6 +44,7 @@ export function Reviews() {
         ) : (
           <h1>Not found any reviews</h1>
         ))}
+      {status === PENDING && <Loader />}
       {status === REJECTED && <h1>{error.message}</h1>}
     </>
   );
