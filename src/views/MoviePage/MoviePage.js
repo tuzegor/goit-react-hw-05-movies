@@ -6,6 +6,7 @@ import {
   useParams,
   useHistory,
   useRouteMatch,
+  useLocation,
 } from 'react-router-dom';
 
 import { fetchSearchMoviesById } from '../../services/movies-api';
@@ -19,6 +20,7 @@ import PropTypes from 'prop-types';
 export function MoviePage() {
   const { movieId } = useParams();
   const history = useHistory();
+  const location = useLocation();
   const { url } = useRouteMatch();
   const [film, setFilm] = useState(null);
   const [status, setStatus] = useState(IDLE);
@@ -42,9 +44,13 @@ export function MoviePage() {
       });
   }, [movieId]);
 
+  function goBack() {
+    history.push(location?.state?.from ?? '/');
+  }
+
   return (
     <div className="container">
-      <button className={styles.backBtn} onClick={() => history.goBack()}>
+      <button className={styles.backBtn} onClick={goBack}>
         Back
       </button>
       {status === RESOLVED && (
@@ -55,14 +61,20 @@ export function MoviePage() {
             <NavLink
               activeClassName={styles.active}
               className={styles.Cast}
-              to={`${url}/cast`}
+              to={{
+                pathname: `${url}/cast`,
+                state: { ...location.state },
+              }}
             >
               Cast
             </NavLink>
             <NavLink
               activeClassName={styles.active}
               className={styles.Reviews}
-              to={`${url}/reviews`}
+              to={{
+                pathname: `${url}/reviews`,
+                state: { ...location.state },
+              }}
             >
               Reviews
             </NavLink>

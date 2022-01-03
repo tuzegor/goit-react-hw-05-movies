@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import styles from './MoviesSearch.module.css';
 
@@ -14,11 +14,10 @@ export function MoviesSearch() {
   const location = useLocation();
   const [status, setStatus] = useState(IDLE);
   const [error, setError] = useState(null);
+  const savedSearchQuery = new URLSearchParams(location.search).get('query');
 
-  const searchFilmBySubmit = e => {
-    e.preventDefault();
-    setStatus(PENDING);
-    fetchSearchMovies(searchFilmName)
+  const searchMoviesByQuery = query => {
+    fetchSearchMovies(query)
       .then(result => {
         if (result) {
           setFilms(result.results);
@@ -32,12 +31,22 @@ export function MoviesSearch() {
         setError(error);
         setStatus(REJECTED);
       });
+  };
 
-    setSearchFilmName('');
+  useEffect(() => {
+    if (savedSearchQuery) searchMoviesByQuery(savedSearchQuery);
+  }, []);
+
+  const searchFilmBySubmit = e => {
+    e.preventDefault();
+    setStatus(PENDING);
+    searchMoviesByQuery(searchFilmName);
+
     history.push({
       ...location,
       search: `query=${searchFilmName}`,
     });
+    setSearchFilmName('');
   };
 
   return (
