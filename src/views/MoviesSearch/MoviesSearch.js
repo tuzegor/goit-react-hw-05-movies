@@ -19,6 +19,11 @@ export function MoviesSearch() {
   const searchMoviesByQuery = query => {
     fetchSearchMovies(query)
       .then(result => {
+        if (result.total_results === 0) {
+          setError(Error('Nothing found'));
+          setStatus(REJECTED);
+          return;
+        }
         if (result) {
           setFilms(result.results);
           setStatus(RESOLVED);
