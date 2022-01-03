@@ -36,9 +36,14 @@ export function Cast() {
             <li className={styles.item} key={actor.id}>
               <h3>{actor.name}</h3>
               <img
-                src={`https://www.themoviedb.org/t/p/w500${actor.profile_path}`}
+                src={
+                  actor.profile_path
+                    ? `https://www.themoviedb.org/t/p/w500${actor.profile_path}`
+                    : 'https://windows10free.ru/uploads/posts/2017-04/1493287748_1487679899_icon-user-640x640.png'
+                }
                 alt={actor.name}
               />
+
               <p>{actor.character}</p>
             </li>
           ))}
