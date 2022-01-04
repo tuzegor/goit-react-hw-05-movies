@@ -3,6 +3,7 @@ import styles from './MovieDetails.module.css';
 import PropTypes from 'prop-types';
 
 export function MovieDetails({ film }) {
+  const release_year = new Date(film.release_date).getFullYear();
   return (
     <div className={styles.Card}>
       <img
@@ -11,7 +12,9 @@ export function MovieDetails({ film }) {
         alt={film.title}
       />
       <div className={styles.Description}>
-        <h2 className={styles.Title}>{film.title ?? film.name}</h2>
+        <h2 className={styles.Title}>
+          {film.title ?? film.name} <span>({release_year})</span>
+        </h2>
 
         <p>Vote: {film.vote_average}/10</p>
         <h3 className={styles.Overview}>Overview</h3>
