@@ -3,10 +3,10 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieActors } from '../../services/movies-api';
 import styles from './Cast.module.css';
 import { IDLE, PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
-import { Loader } from '../Loader';
+import Loader from '../Loader/Loader';
 import PropTypes from 'prop-types';
 
-export function Cast() {
+export default function Cast() {
   const { movieId } = useParams();
   const [actors, setActors] = useState(null);
   const [status, setStatus] = useState(IDLE);

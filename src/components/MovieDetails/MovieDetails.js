@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './MovieDetails.module.css';
 import PropTypes from 'prop-types';
 
-export function MovieDetails({ film }) {
+export default function MovieDetails({ film }) {
   const release_year = new Date(film.release_date).getFullYear();
   return (
     <div className={styles.Card}>

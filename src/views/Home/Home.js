@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react';
-import { MoviesList } from '../../components/MoviesList';
+import MoviesList from '../../components/MoviesList/MoviesList';
 import { fetchTrendingMovies } from '../../services/movies-api';
-import { IDLE, PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
-import { Loader } from '../../components/Loader';
+import { PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
+import Loader from '../../components/Loader/Loader';
 
-export function Home() {
+export default function Home() {
   const [films, setFilms] = useState(null);
-  const [status, setStatus] = useState(IDLE);
+  const [status, setStatus] = useState(PENDING);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setStatus(PENDING);
     fetchTrendingMovies()
       .then(result => {
         setFilms(result.results);

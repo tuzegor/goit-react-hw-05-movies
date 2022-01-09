@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import styles from './MoviesSearch.module.css';
 
-import { MoviesList } from '../../components/MoviesList';
+import MoviesList from '../../components/MoviesList/MoviesList';
 import { fetchSearchMovies } from '../../services/movies-api';
 import { IDLE, PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
-import { Loader } from '../../components/Loader';
+import Loader from '../../components/Loader/Loader';
 
-export function MoviesSearch() {
+export default function MoviesSearch() {
   const [searchFilmName, setSearchFilmName] = useState('');
   const [films, setFilms] = useState(null);
   const history = useHistory();

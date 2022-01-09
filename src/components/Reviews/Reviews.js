@@ -3,10 +3,10 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from '../../services/movies-api';
 import styles from './Reviews.module.css';
 import { IDLE, PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
-import { Loader } from '../Loader';
+import Loader from '../Loader/Loader';
 import PropTypes from 'prop-types';
 
-export function Reviews() {
+export default function Reviews() {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState(null);
   const [status, setStatus] = useState(IDLE);

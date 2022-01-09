@@ -10,14 +10,14 @@ import {
 } from 'react-router-dom';
 
 import { fetchSearchMoviesById } from '../../services/movies-api';
-import { MovieDetails } from '../../components/MovieDetails';
-import { Cast } from '../../components/Cast';
-import { Reviews } from '../../components/Reviews';
+import MovieDetails from '../../components/MovieDetails/MovieDetails';
+import Cast from '../../components/Cast/Cast';
+import Reviews from '../../components/Reviews/Reviews';
 import { IDLE, PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
-import { Loader } from '../../components/Loader';
+import Loader from '../../components/Loader/Loader';
 import PropTypes from 'prop-types';
 
-export function MoviePage() {
+export default function MoviePage() {
   const { movieId } = useParams();
   const history = useHistory();
   const location = useLocation();

@@ -2,12 +2,12 @@ import './App.css';
 
 import { Route, Switch, Redirect } from 'react-router-dom';
 //----------------------------------------------
-import { Home } from './views/Home';
-import { MoviesSearch } from './views/MoviesSearch';
-import { MoviePage } from './views/MoviePage';
+import Home from './views/Home/Home';
+import MoviesSearch from './views/MoviesSearch/MoviesSearch';
+import MoviePage from './views/MoviePage/MoviePage';
 
 //----------------------------------------------
-import { Header } from './components/Header';
+import Header from './components/Header/Header';
 
 export default function App() {
   return (
