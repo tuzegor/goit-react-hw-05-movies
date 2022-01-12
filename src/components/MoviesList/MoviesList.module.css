@@ -1,7 +1,38 @@
-.item {
-  font-size: 18px;
-  font-weight: 500;
+.filmsList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -20px;
+  margin-top: -20px;
 }
-.item:not(:last-child) {
-  margin-bottom: 10px;
+
+.item {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.title {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.wrapper {
+  width: 160px;
+  padding: 5px;
+  text-align: center;
+
+  height: 100%;
+}
+
+.wrapper:hover {
+  box-shadow: 0 0 10px;
+  border-radius: 3px;
+}
+
+.poster {
+  display: block;
+  margin: 0 auto;
+  height: 225px;
 }

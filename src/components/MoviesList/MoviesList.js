@@ -12,7 +12,19 @@ export default function MoviesList({ films }) {
             <Link
               to={{ pathname: `/movies/${film.id}`, state: { from: location } }}
             >
-              {film.title ?? film.name}
+              <div className={styles.wrapper}>
+                <img
+                  className={styles.poster}
+                  src={
+                    film.poster_path
+                      ? `https://www.themoviedb.org/t/p/w500${film.poster_path}`
+                      : 'https://tl.rulate.ru/i/book/19/10/18925.jpg'
+                  }
+                  alt={film.title}
+                  width={150}
+                />
+                <h2 className={styles.title}>{film.title ?? film.name}</h2>
+              </div>
             </Link>
           </li>
         ))}
